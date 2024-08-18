@@ -15,7 +15,7 @@ class ConversationGenerator:
         self.model_name = model_name
         # Check if GPU is available and set the device
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+        self.intents_dict = intents_dict
         # Initialize the model and tokenizer here as before
         self.tokenizer = AutoTokenizer.from_pretrained(
             model_name,
@@ -49,13 +49,13 @@ class ConversationGenerator:
         conv_turns = get_turn(list_of_intents)
         message = (
             "I will give you an entity, its type, and a background document, along with the user's first question to start a QA dialogue."
-            + intents_dict[list_of_intents[0]]["user instruction"]
+            + self.intents_dict[list_of_intents[0]]["user instruction"]
             + "\n"
             + topic
             + "\n"
             + context
             + "\n"
-            + intents_dict[list_of_intents[0]]["user generation"]
+            + self.intents_dict[list_of_intents[0]]["user generation"]
             + first_question
         )
         str_output = message
@@ -68,7 +68,7 @@ class ConversationGenerator:
             j = 1
             while True:
                 try:
-                    previous_reply = intents_dict[list_of_intents[i - j]][
+                    previous_reply = self.intents_dict[list_of_intents[i - j]][
                         turn + " generation"
                     ].replace(":", ".")
                     break
@@ -77,7 +77,7 @@ class ConversationGenerator:
             if "_" in list_of_intents[i]:
                 instruction_to_message = combine_instructionv2(
                     list_of_intents[i],
-                    intents_dict,
+                    self.intents_dict,
                     turn + " instruction",
                     self.model,
                     self.tokenizer,
@@ -87,14 +87,14 @@ class ConversationGenerator:
                 combined_instructions[list_of_intents[i]][
                     turn + " instruction"
                 ] = instruction_to_message
-                generation_to_message = intents_dict[list_of_intents[i].split("_")[0]][
+                generation_to_message = self.intents_dict[list_of_intents[i].split("_")[0]][
                     turn + " generation"
                 ]
             else:
-                instruction_to_message = intents_dict[list_of_intents[i]][
+                instruction_to_message = self.intents_dict[list_of_intents[i]][
                     turn + " instruction"
                 ]
-                generation_to_message = intents_dict[list_of_intents[i]][
+                generation_to_message = self.intents_dict[list_of_intents[i]][
                     turn + " generation"
                 ]
             conversation_history = "\n".join(str_output.strip().split("\n"))
@@ -120,3 +120,6 @@ class ConversationGenerator:
 
     def __repr__(self):
         return f"<ConversationGenerator using model {self.model_name}>"
+
+    def set_intents_dict(self, intents_dict):
+        self.intents_dict = intents_dict
