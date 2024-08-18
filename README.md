@@ -38,7 +38,7 @@ We introduce SOLID, a novel approach to generating large-scale, intent-aware inf
 import pprint
 from solid_conversation import ConversationGenerator
 
-llm_model_name = "HuggingFaceH4/zephyr-7b-beta" #@param {type:"string"}
+llm_model_name = "HuggingFaceH4/zephyr-7b-beta"
 generator = ConversationGenerator(llm_model_name)
 
 entity_name = "Jönköping"
