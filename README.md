@@ -109,7 +109,10 @@ If you use SOLID in your research, please cite our work:
 ```
 
 ## Available Intents
-SOLID supports a variety of intents to generate different types of dialogue responses. Below is a list of the available intents, including their purpose and how they should be used:
+<details>
+<summary>Click to expand the Available Intents</summary>
+
+### SOLID supports a variety of intents to generate different types of dialogue responses. Below is a list of the available intents, including their purpose and how they should be used:
 
 - **CQ**: Clarification Question
 - **FD**: Further Details
@@ -128,6 +131,40 @@ You can combine these intents for dialogue generation. For example, using NF_FQ 
 
 ### Custom intents
 
+#### Example of defining a new custom intents_dict
+
+```python
+custom_intents_dict = {
+    "OQ": {
+        "user instruction": "Formulate the first question posed by a user that initiates a QA dialogue.",
+        "agent instruction": "Formulate an original question posed by an agent.",
+        "user generation": "Question:",
+        "agent generation": "Question:",
+    },
+    # Add or update more intents as needed
+}
+
+generator.set_intents_dict(custom_intents_dict)
+
+solid_generated_dialogue, multi_intent_self_instructions = generator.generate_dialogue(entity_name, entity_type, entity_description, sequence_of_intents, conversation_starter)
+dialog = solid_generated_dialogue["generated_dialogue"]
+```
+
+#### Example of adding a new intent to the existing intents_dict
+
+```python
+generator.add_intent(
+    "NEW_INTENT",
+    "New user instruction",
+    "New agent instruction",
+    "New user generation",
+    "New agent generation"
+)
+
+solid_generated_dialogue, multi_intent_self_instructions = generator.generate_dialogue(entity_name, entity_type, entity_description, sequence_of_intents, conversation_starter)
+dialog = solid_generated_dialogue["generated_dialogue"]
+```
+</details>
 
 ## Acknowledgments
 
