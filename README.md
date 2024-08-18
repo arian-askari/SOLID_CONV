@@ -1,12 +1,76 @@
-# A Python library for Intent-Aware Conversation Generation with SOLID 
+# SOLID: Intent-Aware Conversation Generation 
 [<img src= "./figures/solid_logo.png" width=95px />](https://arian-askari.github.io/SOLID/) [<img src= "https://img.shields.io/badge/Language-English-brightgreen"  />](https://arian-askari.github.io/SOLID/)
 
-A Python library for generating intent-aware dialogues using large language models. More details are available on ["SOLID: Self-instructing and Self-seeding LLMs for Large-scale Intent-Aware Informating-Seeeking Dialogue Generation"](https://arxiv.org/abs/2402.11633) and its [corresponding repo](https://github.com/arian-askari/solid).
 
-# Self-seeding and Multi-intent Self-instructing LLMs for Generating Intent-aware Information-Seeking dialogs
+Welcome to SOLID-Conv – a Python library designed for generating intent-aware dialogues using large language models. Discover more about SOLID in our [research paper](https://arxiv.org/abs/2402.11633), which has been accepted at the ACL NLP for Conversational AI workshop, and explore the [GitHub repository](https://github.com/arian-askari/solid) for the latest updates.
+
+## Overview
+
+SOLID introduces a novel methodology for generating large-scale, intent-aware information-seeking dialogues. By leveraging self-seeding and multi-intent self-instructing techniques, SOLID ensures high-quality, diverse, and meaningful conversations. SOLID-RL, an advanced variant of SOLID, enhances efficiency while maintaining dialogue quality.
+
+Our approach demonstrates the power of using large language models (LLMs) to create dialogues that are not only informative but also contextually rich and diverse.
 
 If you use this tool, please use the following bibtex references:
 
+## Installation
+
+To get started with SOLID, follow these steps:
+
+### Download the latest version:
+
+``````wget https://github.com/arian-askari/SOLID_CONV/archive/refs/heads/main.zip``````
+
+### Unzip the downloaded file:
+``````unzip main.zip``````
+
+### Move the files to the current directory:
+
+``````mv ./SOLID_CONV-main/* ./``````
+
+### Install the package:
+
+``````pip install ./``````
+
+## Usage
+
+### Here's a quick example to get you started with SOLID:
+
+``````python
+import pprint
+from solid_conversation import ConversationGenerator
+
+# Initialize the conversation generator with your chosen LLM model
+llm_model_name = "HuggingFaceH4/zephyr-7b-beta"
+generator = ConversationGenerator(llm_model_name)
+
+# A self-seed example
+entity_name = "Jönköping"
+entity_type = "City"
+entity_description = ("Jönköping (Swedish pronunciation: [jœnˈøːnpɪŋ] (listen)) is a city in southern Sweden, situated by the western shore of Lake Vättern. "
+                      "It is the seat of Jönköping municipality and Jämtland County, and has a population of 114,418 (2019). Jönköping is part of the Swedish province "
+                      "of Småland. Historically, the city has been significant due to its location at the transition between the provinces of Västergötland and Småland, "
+                      "which is reflected in its architecture and cultural heritage.")
+sequence_of_intents = ['OQ', 'RQ', 'FD_NF', 'PA']
+conversation_starter = "How has the cultural and architectural heritage of both Västergötland and Småland influenced the development of Jönköping as a unique city?"
+
+# Generate the dialogue
+solid_generated_dialogue, multi_intent_self_instructions = generator.generate_dialogue(entity_name, entity_type, entity_description, sequence_of_intents, conversation_starter)
+
+# Print the generated dialogue
+dialog = solid_generated_dialogue["generated_dialogue"]
+pprint.pprint(dialog, width=80)
+``````
+
+## Explore in Google Colab
+
+Try out SOLID in a ready-to-use Google Colab notebook and see it in action! 
+
+
+[Intent-aware-Conv-Generation-SOLID](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing)
+
+## Citing SOLID
+
+If you use SOLID in your research, please cite our work:
 
 ```bibtex
 @misc{askari2024selfseeding,
@@ -19,47 +83,7 @@ If you use this tool, please use the following bibtex references:
 }
 ```
 
-This work has been done under the supervision of Prof. Mohammad Aliannejadi, Evangelos Kanoulas, and Suzan Verberne during my visiting research at Information Retrieval Lab at the University of Amsterdam (IRLab@UvA).
+## Acknowledgments
 
-## Overiew
-We introduce SOLID, a novel approach to generating large-scale, intent-aware information-seeking dialogues. Our method leverages self-seeding and multi-intent self-instructing schemes to produce high-quality dialogues. Additionally, we propose SOLID-RL, an enhanced version of SOLID, designed to increase efficiency without compromising the quality of generated dialogues. SOLID's method to creating intent-aware dialogs highlights the possibilities of using LLMs to generate meaningful and diverse while intent-aware conversations.
+This project was developed under the guidance of Prof. Mohammad Aliannejadi, Evangelos Kanoulas, and Suzan Verberne during my research visit to the Information Retrieval Lab at the University of Amsterdam (IRLab@UvA).
 
-
-## Installation
-
-- ```wget https://github.com/arian-askari/SOLID_CONV/archive/refs/heads/main.zip```
-- ```unzip main.zip```
-- ```mv ./SOLID_CONV-main/* ./```
-- ```pip install ./```
-
-## Usage
-
-```python
-import pprint
-from solid_conversation import ConversationGenerator
-
-llm_model_name = "HuggingFaceH4/zephyr-7b-beta"
-generator = ConversationGenerator(llm_model_name)
-
-entity_name = "Jönköping"
-entity_type = "City"
-entity_description = ("Jönköping (Swedish pronunciation: [jœnˈøːnpɪŋ] (listen)) is a city in southern Sweden, situated by the western shore of Lake Vättern. "
-                      "It is the seat of Jönköping municipality and Jämtland County, and has a population of 114,418 (2019). Jönköping is part of the Swedish province "
-                      "of Småland. Historically, the city has been significant due to its location at the transition between the provinces of Västergötland and Småland, "
-                      "which is reflected in its architecture and cultural heritage.")
-sequence_of_intents = ['OQ', 'RQ', 'FD_NF', 'PA']
-conversation_starter = "How has the cultural and architectural heritage of both Västergötland and Småland influenced the development of Jönköping as a unique city?"
-solid_generated_dialogue, multi_intent_self_instructions = generator.generate_dialogue(entity_name, entity_type, entity_description, sequence_of_intents, conversation_starter)
-
-dialog = solid_generated_dialogue["generated_dialogue"]
-print(dialog)
-pprint.pprint(dialog, width=80)
-
-
-
-
-```
-
-## Colab notebook
-
-[Intent-aware-Conv-Generation-SOLID](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing)
