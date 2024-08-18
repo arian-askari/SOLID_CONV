@@ -87,3 +87,7 @@ If you use SOLID in your research, please cite our work:
 
 This project was developed under the guidance of Prof. Mohammad Aliannejadi, Evangelos Kanoulas, and Suzan Verberne during my research visit to the Information Retrieval Lab at the University of Amsterdam (IRLab@UvA).
 
+## Figure of SOLID's pipeline
+<img src="./figures/SOLID_pipeline.svg">
+
+
