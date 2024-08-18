@@ -1,4 +1,5 @@
 from .utils import filter_new_turn, trim_to_last_punctuation, get_turn, combine_instructionv2, intents_dict, turn_generation
+from transformers import AutoTokenizer, LlamaForCausalLM, AutoModelForCausalLM
 
 class ConversationGenerator:
     def __init__(self, model_name):
@@ -45,7 +46,7 @@ class ConversationGenerator:
                     j += 1
             if "_" in list_of_intents[i]:
                 instruction_to_message = combine_instructionv2(
-                    list_of_intents[i], intents_dict, turn + " instruction"
+                    list_of_intents[i], intents_dict, turn + " instruction", self.model, self.tokenizer
                 )
                 if list_of_intents[i] not in combined_instructions:
                     combined_instructions[list_of_intents[i]] = {}
@@ -60,7 +61,7 @@ class ConversationGenerator:
                 + previous_reply + " " + instruction_to_message + "\n"
                 + conversation_history + "\n" + generation_to_message
             )
-            str_output = turn_generation(message)
+            str_output = turn_generation(message, self.model, self.tokenizer)
             str_output = filter_new_turn(str_output, message, ":", ":")
             str_output = trim_to_last_punctuation(str_output)
             key = ":".join(str_output.strip().split("\n")[-1].split(":")[1:]).strip()
