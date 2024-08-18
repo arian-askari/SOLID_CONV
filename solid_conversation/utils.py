@@ -78,7 +78,7 @@ intents_dict = {
 }
 
 
-def turn_generation(message):
+def turn_generation(message, model, tokenizer):
     """Receives a message and prompts the model, it returns the result"""
 
     tokens = tokenizer(message, return_tensors="pt", truncation=True, padding=True).to(
@@ -165,7 +165,7 @@ def get_turn(strings):
 
 
 
-def combine_instruction(intent, instructions_dict, intents_dict_secondkey):
+def combine_instruction(intent, instructions_dict, intents_dict_secondkey, model, tokenizer):
     content = ""
     for i in intent.split("_"):
         instruction = instructions_dict[i][intents_dict_secondkey]
@@ -196,7 +196,7 @@ def combine_instruction(intent, instructions_dict, intents_dict_secondkey):
     return combined_instruction
 
 
-def combine_instructionv2(intent, instructions_dict, intents_dict_secondkey):
+def combine_instructionv2(intent, instructions_dict, intents_dict_secondkey, model, tokenizer):
     content = ""
     middle_inputs = []
     for rank, i in enumerate(intent.split("_")):
@@ -236,4 +236,3 @@ Merged Instruction: """.format(
     )
     # combined_instruction = str_output.split("Instruction: ")[1].replace("\n", " ").replace("\r", " ").strip()
     return combined_instruction  # combined_instruction
-
