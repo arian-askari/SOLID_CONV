@@ -1,6 +1,29 @@
-# Solid Conversation
+# A Python library for Intent-Aware Conversation Generation with SOLID 
+[<img src= "./figures/solid_logov5.png" width=95px />](https://arian-askari.github.io/SOLID/) [<img src= "https://img.shields.io/badge/Language-English-brightgreen"  />](https://arian-askari.github.io/SOLID/)
 
-A Python library for generating intent-aware dialogues using large language models. More details are available on (https://arxiv.org/abs/2402.11633)[paper] and its (https://github.com/arian-askari/solid)[corresponding repo].
+A Python library for generating intent-aware dialogues using large language models. More details are available on "[SOLID: Self-instructing and Self-seeding LLMs for Large-scale Intent-Aware Informating-Seeeking Dialogue Generation](https://arxiv.org/abs/2402.11633)" and its (corresponding repo)[https://github.com/arian-askari/solid].
+
+# Self-seeding and Multi-intent Self-instructing LLMs for Generating Intent-aware Information-Seeking dialogs
+
+If you use this dataset, please use the following bibtex references:
+
+
+```bibtex
+@misc{askari2024selfseeding,
+      title={Self-seeding and Multi-intent Self-instructing LLMs for Generating Intent-aware Information-Seeking dialogs}, 
+      author={Arian Askari and Roxana Petcu and Chuan Meng and Mohammad Aliannejadi and Amin Abolghasemi and Evangelos Kanoulas and Suzan Verberne},
+      year={2024},
+      eprint={2402.11633},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
+This work has been done under the supervision of Prof. Mohammad Aliannejadi, Evangelos Kanoulas, and Suzan Verberne during my visiting research at Information Retrieval Lab at the University of Amsterdam (IRLab@UvA).
+
+## Overiew
+We introduce SOLID, a novel approach to generating large-scale, intent-aware information-seeking dialogues. Our method leverages self-seeding and multi-intent self-instructing schemes to produce high-quality dialogues. Additionally, we propose SOLID-RL, an enhanced version of SOLID, designed to increase efficiency without compromising the quality of generated dialogues. SOLID's method to creating intent-aware dialogs highlights the possibilities of using LLMs to generate meaningful and diverse while intent-aware conversations.
+
 
 ## Installation
 
@@ -32,3 +55,6 @@ pprint.pprint(dialog, width=80)
 
 ```
 
+## Colab notebook
+
+[Intent-aware-Conv-Generation-SOLID](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing)
