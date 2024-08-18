@@ -4,8 +4,9 @@ from solid_conversation import ConversationGenerator
 class TestConversationGenerator(unittest.TestCase):
     
     def setUp(self):
-        self.llm_model_name = "HuggingFaceH4/zephyr-7b-beta"
-        self.generator = ConversationGenerator(self.llm_model_name )  # Initialize the class 
+        self.llm_model_name = "openai-community/gpt2"
+        self.generator = ConversationGenerator(self.llm_model_name)  # Initialize the class 
+
         
     def test_generate_dialogue(self):
         entity_name = "Jönköping"
