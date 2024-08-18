@@ -38,6 +38,9 @@ We introduce SOLID, a novel approach to generating large-scale, intent-aware inf
 import pprint
 from solid_conversation import ConversationGenerator
 
+llm_model_name = "HuggingFaceH4/zephyr-7b-beta" #@param {type:"string"}
+generator = ConversationGenerator(llm_model_name)
+
 entity_name = "Jönköping"
 entity_type = "City"
 entity_description = ("Jönköping (Swedish pronunciation: [jœnˈøːnpɪŋ] (listen)) is a city in southern Sweden, situated by the western shore of Lake Vättern. "
@@ -51,6 +54,9 @@ solid_generated_dialogue, multi_intent_self_instructions = generator.generate_di
 dialog = solid_generated_dialogue["generated_dialogue"]
 print(dialog)
 pprint.pprint(dialog, width=80)
+
+
+
 
 ```
 
