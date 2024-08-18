@@ -5,7 +5,7 @@ A Python library for generating intent-aware dialogues using large language mode
 
 # Self-seeding and Multi-intent Self-instructing LLMs for Generating Intent-aware Information-Seeking dialogs
 
-If you use this dataset, please use the following bibtex references:
+If you use this tool, please use the following bibtex references:
 
 
 ```bibtex
