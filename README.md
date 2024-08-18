@@ -10,26 +10,56 @@ SOLID introduces a novel methodology for generating large-scale, intent-aware in
 
 Our approach demonstrates the power of using large language models (LLMs) to create dialogues that are not only informative but also contextually rich and diverse.
 
-If you use this tool, please use the following bibtex references:
+## Explore in Google Colab
+
+Try out SOLID in a ready-to-use Google Colab notebook and see it in action! 
+
+
+[Intent-aware-Conv-Generation-SOLID](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing)
+
+## Figure of SOLID's pipeline
+<details>
+<summary>Click to expand the SOLID pipeline figure</summary>
+
+
+
+<img src="./figures/SOLID_pipeline.svg" alt="SOLID Pipeline" width="800">
+
+</details>
+
 
 ## Installation
+<details>
+<summary>Click to expand Installation</summary>
 
-To get started with SOLID, follow these steps:
+### To get started with SOLID, follow these steps:
 
 ### Download the latest version:
 
-``````wget https://github.com/arian-askari/SOLID_CONV/archive/refs/heads/main.zip``````
+``````bash
+wget https://github.com/arian-askari/SOLID_CONV/archive/refs/heads/main.zip
+``````
 
 ### Unzip the downloaded file:
-``````unzip main.zip``````
+``````bash
+unzip main.zip
+``````
 
 ### Move the files to the current directory:
 
-``````mv ./SOLID_CONV-main/* ./``````
+``````bash
+mv ./SOLID_CONV-main/* ./
+``````
 
 ### Install the package:
 
-``````pip install ./``````
+``````bash
+pip install ./
+``````
+
+</details>
+
+
 
 ## Usage
 
@@ -61,12 +91,7 @@ dialog = solid_generated_dialogue["generated_dialogue"]
 pprint.pprint(dialog, width=80)
 ``````
 
-## Explore in Google Colab
 
-Try out SOLID in a ready-to-use Google Colab notebook and see it in action! 
-
-
-[Intent-aware-Conv-Generation-SOLID](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Roohw7CVrsSLyvYNedPEowjHOwSYPRTt?usp=sharing)
 
 ## Citing SOLID
 
@@ -86,8 +111,5 @@ If you use SOLID in your research, please cite our work:
 ## Acknowledgments
 
 This project was developed under the guidance of Prof. Mohammad Aliannejadi, Evangelos Kanoulas, and Suzan Verberne during my research visit to the Information Retrieval Lab at the University of Amsterdam (IRLab@UvA).
-
-## Figure of SOLID's pipeline
-<img src="./figures/SOLID_pipeline.svg">
 
 
