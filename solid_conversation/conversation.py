@@ -1,9 +1,13 @@
+import torch
 from .utils import filter_new_turn, trim_to_last_punctuation, get_turn, combine_instructionv2, intents_dict, turn_generation
 from transformers import AutoTokenizer, LlamaForCausalLM, AutoModelForCausalLM
 
 class ConversationGenerator:
     def __init__(self, model_name):
         self.model_name = model_name
+        # Check if GPU is available and set the device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        
         # Initialize the model and tokenizer here as before
         self.tokenizer = AutoTokenizer.from_pretrained(
             model_name,
@@ -13,9 +17,18 @@ class ConversationGenerator:
             maximum_length=2048,
             model_max_length=2048,
         )
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name, load_in_4bit=True, device_map="auto"
-        )
+
+        # Determine model loading settings based on device availability
+        if self.device.type == "cuda":
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_name, load_in_4bit=True, device_map="auto"
+            )
+        else:
+            # CPU only, load model without 4-bit quantization and manual device setting
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_name
+            )
+        
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model.generation_config.pad_token_id = self.model.generation_config.eos_token_id
 
