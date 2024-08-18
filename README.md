@@ -2,7 +2,7 @@
 [<img src= "./figures/solid_logo.png" width=95px />](https://arian-askari.github.io/SOLID/) [<img src= "https://img.shields.io/badge/Language-English-brightgreen"  />](https://arian-askari.github.io/SOLID/)
 
 
-Welcome to SOLID-Conv – a Python library designed for generating intent-aware dialogues using large language models. Discover more about SOLID in our [research paper](https://arxiv.org/abs/2402.11633), which has been accepted at the ACL NLP for Conversational AI workshop, and explore the [GitHub repository](https://github.com/arian-askari/solid) for the latest updates.
+Welcome to SOLID-Conv – a Python library designed for generating intent-aware dialogues using large language models. Discover more about SOLID in our [research paper](https://arxiv.org/abs/2402.11633), which has been accepted at the **ACL 2024** NLP for Conversational AI workshop, and explore the [GitHub repository](https://github.com/arian-askari/solid) for the latest updates.
 
 ## Overview
 
