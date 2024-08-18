@@ -108,6 +108,27 @@ If you use SOLID in your research, please cite our work:
 }
 ```
 
+## Available Intents
+SOLID supports a variety of intents to generate different types of dialogue responses. Below is a list of the available intents, including their purpose and how they should be used:
+
+- **CQ**: Clarification Question
+- **FD**: Further Details
+- **GG**: Gratitude
+- **PA**: Potential Answer
+- **IR**: Information Request
+- **OQ**: Original Question
+- **FQ**: Follow-up Question
+- **RQ**: Rephrased Question
+- **PF**: Positive Feedback
+- **NF**: Negative Feedback
+- **JK**: Jabberwocky
+- **O**: System Error
+
+You can combine these intents for dialogue generation. For example, using NF_FQ would create an utterance in the dialog that includes both negative feedback and a follow-up question. Explore the various intents to create dynamic and engaging interactions with SOLID!
+
+### Custom intents
+
+
 ## Acknowledgments
 
 This project was developed under the guidance of Prof. Mohammad Aliannejadi, Evangelos Kanoulas, and Suzan Verberne during my research visit to the Information Retrieval Lab at the University of Amsterdam (IRLab@UvA).
