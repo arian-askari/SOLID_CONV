@@ -163,9 +163,9 @@ def get_turn(strings):
     return list(map(update_counter, strings))
 
 
-
-
-def combine_instruction(intent, instructions_dict, intents_dict_secondkey, model, tokenizer):
+def combine_instruction(
+    intent, instructions_dict, intents_dict_secondkey, model, tokenizer
+):
     content = ""
     for i in intent.split("_"):
         instruction = instructions_dict[i][intents_dict_secondkey]
@@ -196,7 +196,9 @@ def combine_instruction(intent, instructions_dict, intents_dict_secondkey, model
     return combined_instruction
 
 
-def combine_instructionv2(intent, instructions_dict, intents_dict_secondkey, model, tokenizer):
+def combine_instructionv2(
+    intent, instructions_dict, intents_dict_secondkey, model, tokenizer
+):
     content = ""
     middle_inputs = []
     for rank, i in enumerate(intent.split("_")):
