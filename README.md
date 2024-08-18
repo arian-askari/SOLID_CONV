@@ -27,11 +27,10 @@ We introduce SOLID, a novel approach to generating large-scale, intent-aware inf
 
 ## Installation
 
-- Clone the code.
-- ```cd SOLID_CONV```
-- ``` pip install -e . ```
-
-
+- ```wget https://github.com/arian-askari/SOLID_CONV/archive/refs/heads/main.zip```
+- ```unzip main.zip```
+- ```mv ./SOLID_CONV-main/* ./```
+- ```pip install ./```
 
 ## Usage
 
