@@ -123,3 +123,24 @@ class ConversationGenerator:
 
     def set_intents_dict(self, intents_dict):
         self.intents_dict = intents_dict
+
+    def add_intent(self, intent_key, user_instruction, agent_instruction, user_generation, agent_generation):
+        """
+        Appends a new intent to the existing intents_dict.
+        
+        Parameters:
+        - intent_key (str): The key for the new intent.
+        - user_instruction (str): The instruction for the user.
+        - agent_instruction (str): The instruction for the agent.
+        - user_generation (str): The user's generation prompt.
+        - agent_generation (str): The agent's generation prompt.
+        """
+        if intent_key in self.intents_dict:
+            print(f"Warning: Intent '{intent_key}' already exists. It will be updated.")
+        
+        self.intents_dict[intent_key] = {
+            "user instruction": user_instruction,
+            "agent instruction": agent_instruction,
+            "user generation": user_generation,
+            "agent generation": agent_generation
+        }
