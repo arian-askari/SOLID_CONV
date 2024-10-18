@@ -116,16 +116,16 @@ If you use SOLID in your research, please cite our work:
 
 - **CQ**: Clarification Question
 - **FD**: Further Details
-- **GG**: Gratitude
+- **GG**: Greetings/Gratitude
 - **PA**: Potential Answer
 - **IR**: Information Request
 - **OQ**: Original Question
 - **FQ**: Follow-up Question
-- **RQ**: Rephrased Question
+- **RQ**: Repeat Question
 - **PF**: Positive Feedback
 - **NF**: Negative Feedback
-- **JK**: Jabberwocky
-- **O**: System Error
+- **JK**: Junk
+- **O**: Others
 
 You can combine these intents for dialogue generation. For example, using NF_FQ would create an utterance in the dialog that includes both negative feedback and a follow-up question. Explore the various intents to create dynamic and engaging interactions with SOLID!
 
